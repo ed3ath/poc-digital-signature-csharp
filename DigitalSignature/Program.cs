@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using System.Security.Cryptography;
+using System.Diagnostics;
 
 using Newtonsoft.Json;
 
@@ -17,12 +18,15 @@ class Program
 {
     static void Main(string[] args)
     {
+        var watch = new Stopwatch();
+        watch.Start();
         // data
         var myData = new
         {
             message = "test"
         };
         var keyPair = GenerateKeyPair();
+            
 
         var privateKey = keyPair.Private as ECPrivateKeyParameters;
         var publicKey = keyPair.Public as ECPublicKeyParameters;
@@ -52,6 +56,8 @@ class Program
         Console.WriteLine($"Shared key: {ToHex(sharedKey)}");
         Console.WriteLine($"Signature: {signature}");
         Console.WriteLine($"Serialized Data: {Newtonsoft.Json.JsonConvert.SerializeObject(myData).ToString()}");
+        watch.Stop();
+        Console.WriteLine($"Execution Time: {watch.ElapsedMilliseconds} ms");
 
     }
 
