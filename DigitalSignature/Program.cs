@@ -1,10 +1,8 @@
-﻿using System.Globalization;
-using System.Text;
+﻿using System.Text;
 using System.Security.Cryptography;
 
 using Newtonsoft.Json;
 
-using Org.BouncyCastle.Asn1.Sec;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
@@ -12,7 +10,6 @@ using Org.BouncyCastle.Asn1.X9;
 using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Math;
 using Org.BouncyCastle.Utilities;
-using Org.BouncyCastle.Crypto.Macs;
 
 namespace DigitalSignature;
 
