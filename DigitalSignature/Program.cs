@@ -29,7 +29,7 @@ class Program
 
         var generator = new ECKeyPairGenerator("ECDSA");
 
-        var serverPublicKey = "0461f54fb3ae429870af72922661935c4334423bc848896c9cdf0f24747f6e77acdcd95e6b40305ca6528780b309e7a627f85086a4d1528e7b6af16b82ebc8e7c5";
+        var serverPublicKey = "0461f54fb3ae429870af72922661935c4334423bc848896c9cdf0f24747f6e77acdcd95e6b40305ca6528780b309e7a627f85086a4d1528e7b6af16b82ebc8e7c5"; // public key from `GET /player/key/request`
 
         Console.WriteLine($"Private key: {ToHex(privateKey.D.ToByteArrayUnsigned())}");
         Console.WriteLine($"Public key: {ToHex(publicKey.Q.GetEncoded())}");
