@@ -29,7 +29,7 @@ class Program
 
         var generator = new ECKeyPairGenerator("ECDSA");
 
-        var serverPublicKey = "0461f54fb3ae429870af72922661935c4334423bc848896c9cdf0f24747f6e77acdcd95e6b40305ca6528780b309e7a627f85086a4d1528e7b6af16b82ebc8e7c5"; // public key from `GET /player/key/request`
+        var serverPublicKey = "04e527ea541fb51ad574229db3f7f8ac20782a9e7be94a90f947385e694c8e7f35e5ab6753e95db6b89f2c79d578fa0d973aab734baae5341e7bb7c1bdc060e98b"; // public key from `GET /player/key/request`
 
         Console.WriteLine($"Private key: {ToHex(privateKey.D.ToByteArrayUnsigned())}");
         Console.WriteLine($"Public key: {ToHex(publicKey.Q.GetEncoded())}");
@@ -109,8 +109,7 @@ class Program
     }
     private static string GetHMAC(string text, string key)
     {
-        Encoding ascii = Encoding.ASCII;
         HMACSHA256 hmac = new HMACSHA256(HexToBytes(key));
-        return ToHex(hmac.ComputeHash(ascii.GetBytes(text)));
+        return ToHex(hmac.ComputeHash(Encoding.UTF8.GetBytes(text)));
     }
 }
